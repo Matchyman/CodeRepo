@@ -1,0 +1,35 @@
+/* Grid Stuff */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 80px, auto, auto, 80px;
+}
+
+.header {
+    grid-column: 1/ span 4;
+    grid-row: 1;
+    text-align: center;
+    background-image: url("pictures/sunset_background_header.jpg");
+}
+
+.main {
+    grid-column: 2/span 2;
+    grid-row: 2/3;
+    text-align: center;
+}
+
+.footer {
+    grid-column: 1/ span 4;
+    grid-row: 4;
+    text-align: center;
+}
+
+.right-side {
+    grid-column: 4/4;
+    grid-row: 2/span 2;
+}
+
+.left-side {
+    grid-column: 1/1;
+    grid-row: 2/ span 2;
+}
