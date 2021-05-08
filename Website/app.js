@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-var hostname = '127.0.0.1';
+var hostname = 'localhost';
 var port = 3000;
 var app = express();
 
@@ -26,5 +26,5 @@ app.get('/contact', (req, res) => {
 
 
 app.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
+    console.log(`Server running at http://localhost:${port}/`);
 });

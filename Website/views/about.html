@@ -15,7 +15,18 @@
 <body>
     <div class="grid-container">
         <div class="header">
-            <h1> About Page</h1>
+            <div class="inline-header">
+                <a class="navbar-brand" href="https://github.com/matchyman">
+                    <img src="/pictures/GitHub-Mark-Light-32px.png" alt="github">
+                </a>
+                <a class="navbar-brand" href="https://github.com/matchyman">
+                    <img src="/pictures/twitter-32px.png" alt="github">
+                </a>
+                <a class="navbar-brand" href="https://www.linkedin.com/in/james-matcham-4b7160194/">
+                    <img src="/pictures/linkedin-32px.png"" alt="twitter">
+                </a>
+
+            </div>
         </div>
         <div class="main">
             <p>
@@ -28,18 +39,22 @@
         </div>
 
         <div class="left-side">
-        
-            <p>
-                <a href="/"class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Home</a>
-            </p>
-            <p>
-                <a href="/contact"class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Contact</a>
-            </p>
+
+             <ul class="nav flex-column">
+                <li class="nav-item">
+
+                    <button type="button" class="btn btn-light" style="width: 7em;" onclick="redirectHome()">Home</button>
+                </li>
+                <li class="nav-item">
+
+                    <button type="button " class="btn btn-light " style="width: 7em;" onclick="redirectContact()">Contact</button>
+                </li>
+            </ul
         </div>
-        <div class="right-side">
+        <div class="right-side ">
             <!--Never used-->
         </div>
-        <div class="footer">
+        <div class="footer ">
             <!--Maybe put links in here instead of left side-->
         </div>
     </div>
@@ -47,7 +62,9 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js " integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8 " crossorigin="anonymous "></script>
+    <script src="/scripts/scripts.js"></script>
 </body>
+
 
 </html>
