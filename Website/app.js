@@ -10,9 +10,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.engine('html', require('ejs').renderFile);
 
 app.get('/', (req, res) => {
-
     res.render('home.html');
 })
+
+app.get('/about', (req, res) => {
+
+    res.render('about.html');
+})
+
+app.get('/contact', (req, res) => {
+
+    res.render('contact.html');
+})
+
+
 
 app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
