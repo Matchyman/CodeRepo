@@ -7,7 +7,12 @@
         grid-column: 1/ span 4;
         grid-row: 1;
         color: white;
-        display: inline;
+        display: inline-flex;
+        text-align: center;
+    }
+    
+    a {
+        align-items: flex-end;
     }
     
     .main {
@@ -20,9 +25,6 @@
     .footer {
         grid-column: 1/ span 4;
         grid-row: 4;
-        position: fixed;
-        bottom: 0%;
-        width: 100%;
     }
     
     .right-side {
@@ -39,8 +41,4 @@
         background-image: url("background.jpg");
         background-repeat: no-repeat;
         background-position: center;
-    }
-    
-    .inline-header {
-        text-align: end;
     }
