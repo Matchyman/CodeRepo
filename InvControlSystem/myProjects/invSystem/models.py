@@ -12,22 +12,34 @@ class User(models.Model):
     username = models.CharField(max_length=50) 
     password = models.CharField(max_length=50)
     is_staff = models.BooleanField(default = False)
+
+    def __str__(self):
+        return self.username
+    
     
 #Item Model
 
 
 
-class Item(models.Model):
-    #ITEM_CATERGORY_CHOICES =[]
+class Item(models.Model): 
     item_name = models.CharField(max_length=50)
     item_price = models.DecimalField(max_digits=7, decimal_places=2)
     item_quantity = models.IntegerField()
+    ITEM_CATERGORY_CHOICES =[
+        ('Alcohol','Alcohol'),
+        ('Fruit','Fruit'),
+        ('Veg','Veg'),
+        ('Dairy','Dairy'),
+        ('Meat','Meat'),
+        ('Pantry','Pantry'),
+        ('Tinned','Tinned'),
+    ]
+    item_catergories = models.CharField(max_length=50, choices = ITEM_CATERGORY_CHOICES)
+
+    def __str__(self):
+        return self.item_name
 
 
-
-
-
-#Enumaration For Catergories
 
 
 
