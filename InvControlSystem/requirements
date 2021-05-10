@@ -1,0 +1,37 @@
+
+Just say for sake of saying its for a shop:
+Holds an account of everything that the shop has in stock
+
+When people buy things updates stock num
+When delivery is made updates stock num
+Option to add item or update manually
+Option to remove item manually
+Shows stock number on page
+Add in functionality for user and staff.
+Track whats been sold, onto staff interface auto updated or shown as report
+
+What were using: Django Framework
+Pages:
+    Login{
+        Authentication
+        Create User(customer)
+    }
+    Customer interface(shop){
+        Search Bar
+        Table of items
+        Basket shown
+        Checkout
+    }
+    Staff interface{
+        Create User(Staff)
+        Table sold products
+        Alerts for low stock
+        Delivery place     
+    }
+    Checkout{
+        Uses basket
+        Takes details and pays
+        Store transaction
+    }
+    
+
