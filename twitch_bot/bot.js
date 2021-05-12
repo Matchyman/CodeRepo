@@ -78,6 +78,25 @@ function icri() {
     return "i cri inside everytime too"
 }
 
+function dndstatroller() {
+    results = []
+
+    while (results.length < 6) {
+        x = statrandom();
+        if (x > 8) {
+            results.push(x);
+        }
+
+
+    }
+    return results;
+
+}
+
+function statrandom() {
+    return Math.floor(Math.random() * 18) + 1;
+}
+
 
 // Called every time the bot connects to Twitch chat
 function onConnectedHandler(addr, port) {
@@ -108,9 +127,19 @@ client.on('message', (channel, tags, message, self) => {
     if (command === 'dice') {
         client.say(channel, rollDice());
     }
-    //Shoutout Commans
+    //Shoutout Command
     if (command === 'so' && tags.mod == true) {
         client.say(channel, shoutout(message));
+    }
+    if (command === 'dnd') {
+        result = dndstatroller()
+        stats = ["Dex", "Str", "Con", "Wis", "Cha", "Int"]
+        toSay = `Results: `
+        for (i = 0; i < results.length; i++) {
+            toSay = toSay + `${stats[i]}: ${result[i]}, `
+        }
+        //console.log(toSay);
+        client.say(channel, toSay);
     }
 });
 
