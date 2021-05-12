@@ -1,4 +1,6 @@
 const tmi = require('tmi.js');
+const fs = require('fs');
+
 
 // Define configuration options
 const opts = {
@@ -77,26 +79,30 @@ function shoutout(msg) {
 function icri() {
     return "i cri inside everytime too"
 }
-
+//Stat Roller for DnD 
 function dndstatroller() {
     results = []
-
     while (results.length < 6) {
-        x = statrandom();
+        x = Math.floor(Math.random() * 18) + 1;
         if (x > 8) {
             results.push(x);
         }
-
-
     }
     return results;
-
 }
 
-function statrandom() {
-    return Math.floor(Math.random() * 18) + 1;
-}
+function test() {
+    try {
+        const first_names = fs.readFileSync('first_names.txt', 'utf8').split('\n')
+        const last_names = fs.readFileSync('last_names.txt', 'utf8').split('\n')
+        x = Math.floor(Math.random() * first_names.length + 1)
+        y = Math.floor(Math.random() * last_names.length + 1)
+        return `Random Name: ${first_names[x]} ${last_names[y]}`
 
+    } catch (err) {
+        console.error(err)
+    }
+}
 
 // Called every time the bot connects to Twitch chat
 function onConnectedHandler(addr, port) {
@@ -140,6 +146,9 @@ client.on('message', (channel, tags, message, self) => {
         }
         //console.log(toSay);
         client.say(channel, toSay);
+    }
+    if (command === 'test') {
+        client.say(channel, test())
     }
 });
 
