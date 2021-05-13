@@ -153,7 +153,6 @@ client.on('message', (channel, tags, message, self) => {
         client.say(channel, shoutout(message));
     }
     if (command === 'dnd') {
-        //console.log(toSay);
         client.say(channel, dndstatroller());
     }
     if (command === 'name') {
@@ -187,18 +186,6 @@ client.on('message', (channel, tags, message, self) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 // Follower to channel
 client.on("follower", (channel, username) => {
     client.say(channel, `${username} Thanks for following!`)
@@ -206,7 +193,7 @@ client.on("follower", (channel, username) => {
 
 // Sub to channel
 client.on("subscription", (channel, username, method, message, userstate) => {
-    client.say(channel, `${username} Thanks for subscribing, enjoy the tea and emotes matchy1Tea`);
+    client.say(channel, `${username} Thanks for subscribing, enjoy the tea and emotes`);
 });
 
 //Resub to channel
