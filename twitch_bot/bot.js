@@ -95,7 +95,7 @@ function dndstatroller() {
     }
     return toSay;
 }
-
+//Randomises names pulled from two txt files
 function nameRandomiser() {
     try {
         const first_names = fs.readFileSync('first_names.txt', 'utf8').split('\n')
@@ -136,6 +136,7 @@ client.on('message', (channel, tags, message, self) => {
     }
     //Dice command
     if (command === 'dice') {
+        2
         client.say(channel, rollDice());
     }
     //Shoutout Command
