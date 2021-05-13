@@ -91,7 +91,7 @@ function dndstatroller() {
     return results;
 }
 
-function test() {
+function nameRandomiser() {
     try {
         const first_names = fs.readFileSync('first_names.txt', 'utf8').split('\n')
         const last_names = fs.readFileSync('last_names.txt', 'utf8').split('\n')
@@ -147,8 +147,8 @@ client.on('message', (channel, tags, message, self) => {
         //console.log(toSay);
         client.say(channel, toSay);
     }
-    if (command === 'test') {
-        client.say(channel, test())
+    if (command === 'name') {
+        client.say(channel, nameRandomiser())
     }
 });
 
