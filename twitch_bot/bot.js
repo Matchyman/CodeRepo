@@ -1,6 +1,6 @@
 const tmi = require('tmi.js');
 const fs = require('fs');
-const { isDeepStrictEqual } = require('util');
+
 
 
 // Define configuration options
@@ -136,20 +136,16 @@ client.on('message', (channel, tags, message, self) => {
     if (command === 'echo') {
         client.say(channel, `@${tags.username}, you said: "${args.join(' ')}"`);
     }
-    //8 Ball command
     if (command === 'ball') {
         client.say(channel, `@${tags.username}, ${ball()}`);
     }
-    //I cri everytime
     if (command === 'cry') {
         client.say(channel, icri());
     }
-    //Dice command
     if (command === 'dice') {
         client.say(channel, rollDice());
     }
-    //Shoutout Command
-    if (command === 'so' && (tags.mod == true || tags.username === "TheMatchyman")) {
+    if (command === 'so' && (tags.mod == true || tags.username == "thematchyman")) {
         client.say(channel, shoutout(message));
     }
     if (command === 'dnd') {
@@ -163,10 +159,13 @@ client.on('message', (channel, tags, message, self) => {
         client.say(channel, `@${tags.username}, your idea has been added :)`)
     }
     if (command === 'twitter') {
-        client.say(channel, `@${tags.username},${twitter()} :)`)
+        client.say(channel, `@${tags.username},${twitter()}`)
     }
     if (command === 'discord') {
         //Link to the discords
+    }
+    if (command === 'banger') {
+        client.say(channel, "SnowSing");
     }
 });
 
