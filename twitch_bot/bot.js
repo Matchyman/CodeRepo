@@ -82,13 +82,18 @@ function icri() {
 //Stat Roller for DnD 
 function dndstatroller() {
     results = []
+    stats = ["Dex", "Str", "Con", "Wis", "Cha", "Int"]
     while (results.length < 6) {
         x = Math.floor(Math.random() * 18) + 1;
         if (x > 8) {
             results.push(x);
         }
     }
-    return results;
+    toSay = `Results: `
+    for (i = 0; i < results.length; i++) {
+        toSay = toSay + `${stats[i]}: ${results[i]}, `
+    }
+    return toSay;
 }
 
 function nameRandomiser() {
@@ -138,14 +143,8 @@ client.on('message', (channel, tags, message, self) => {
         client.say(channel, shoutout(message));
     }
     if (command === 'dnd') {
-        result = dndstatroller()
-        stats = ["Dex", "Str", "Con", "Wis", "Cha", "Int"]
-        toSay = `Results: `
-        for (i = 0; i < results.length; i++) {
-            toSay = toSay + `${stats[i]}: ${result[i]}, `
-        }
         //console.log(toSay);
-        client.say(channel, toSay);
+        client.say(channel, dndstatroller());
     }
     if (command === 'name') {
         client.say(channel, nameRandomiser())
@@ -163,6 +162,7 @@ client.on('message', (channel, tags, message, self) => {
         // "@alca, heya!"
         client.say(channel, `@${tags.username}, heya!`);
     }
+
 });
 
 
