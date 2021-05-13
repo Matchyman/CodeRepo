@@ -1,5 +1,6 @@
 const tmi = require('tmi.js');
 const fs = require('fs');
+const { isDeepStrictEqual } = require('util');
 
 
 // Define configuration options
@@ -74,7 +75,6 @@ function shoutout(msg) {
     result = msg.slice(4, msg.length);
     return `Hey you, go checkout @${result} at www.twitch.tv/${result}`;
 }
-
 //Crying Message
 function icri() {
     return "i cri inside everytime too"
@@ -108,12 +108,22 @@ function nameRandomiser() {
         console.error(err)
     }
 }
-
 // Called every time the bot connects to Twitch chat
 function onConnectedHandler(addr, port) {
     console.log(`* Connected to ${addr}:${port}`);
 }
-
+//Write the idea to a text file is write only at the moment
+function idea(message) {
+    fs.appendFile('ideas.txt', `\n${message}`, { flag: 'a' }, err => {
+        if (err) {
+            console.log(err)
+        }
+    })
+}
+//Link to the twitters
+function twitter() {
+    return "Here ya go: www.twitter.com/matchyman1"
+}
 
 
 ///This is for commands
@@ -136,11 +146,10 @@ client.on('message', (channel, tags, message, self) => {
     }
     //Dice command
     if (command === 'dice') {
-        2
         client.say(channel, rollDice());
     }
     //Shoutout Command
-    if (command === 'so' && tags.mod == true) {
+    if (command === 'so' && (tags.mod == true || tags.username === "TheMatchyman")) {
         client.say(channel, shoutout(message));
     }
     if (command === 'dnd') {
@@ -149,6 +158,16 @@ client.on('message', (channel, tags, message, self) => {
     }
     if (command === 'name') {
         client.say(channel, nameRandomiser())
+    }
+    if (command === 'idea') {
+        idea(message);
+        client.say(channel, `@${tags.username}, your idea has been added :)`)
+    }
+    if (command === 'twitter') {
+        client.say(channel, `@${tags.username},${twitter()} :)`)
+    }
+    if (command === 'discord') {
+        //Link to the discords
     }
 });
 
