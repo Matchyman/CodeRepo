@@ -14,12 +14,8 @@ def loginPageRender(request):
         if form.is_valid():
             username = (form.cleaned_data['username'])
             password = (form.cleaned_data['password'])
-            print(username)
-            print(password)
             y = User.objects.filter(username = username)
             for x in y:
-            
-                print(x.is_staff)
                 if(x.password == password):
                     if (x.is_staff == False):
                         return redirect('/shop')
@@ -34,7 +30,8 @@ def loginPageRender(request):
     return render(request, 'login.html', {'form':form})
 
 def customerInterfaceRender(request):
-    return render(request,'customer_interface.html')
+    items = Item.objects.all();
+    return render(request,'customer_interface.html', {'items': items})
 
 def staffInterfaceRender(request):
     return render(request, 'staff_interface.html')
