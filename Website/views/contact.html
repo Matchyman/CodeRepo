@@ -12,7 +12,7 @@
 </head>
 
 <body>
-     <div class="container">
+    <div class="container">
         <header class="top-section">
             <a class="navbar-brand" href="https://github.com/matchyman">
                 <img src="/pictures/GitHub-Mark-32px.png" alt="github">
@@ -25,31 +25,29 @@
             </a>
         </header>
         <div class="side-nav">
-            <ul>
-                <li>
-                    <a href="/about" class="about">About</a>
-                </li>
-                <li>
-                    <a href="/projects" class="projects">Projects</a>
-                </li>
-                <li>
-                    <a href="/contact" class="contact">Contact</a>
-                </li>
-            </ul>
+            <a href="/about" class="navigation">About</a> <br>
+            <a href="/projects" class="navigation">Projects</a> <br>
+            <a href="/contact " class="navigation ">Contact</a><br>
         </div>
         <div class="content">
-            
+            <form action="" method="POST">
+                <label for="email-contact"> Email </label>
+                <input type="email" name="contact-email" id="email-contact"><br>
+                <label for="header-contact"> Reason </label>
+                <input type="text" name="contact-message-header" id="header-contact"><br>
+                <textarea name="contact-text" id="text-contact" cols="50" rows="10" placeholder="Please Place Message Here......"></textarea>
+                <button type="submit">Send</button>
+            </form>
         </div>
         <footer class="bottom-section">
             Matchyman &copy; 2021
         </footer>
-
     </div>
 
 
 
 
-   
+
     <script src="/scripts/scripts.js"></script>
 </body>
 
