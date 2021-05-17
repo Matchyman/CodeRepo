@@ -1,29 +1,25 @@
-{% extends 'base.html' %}
-
-{% block title %} Customer Interface{% endblock %}
-
-
-{% block content%}
+{% extends 'base.html' %} {% block title %} Customer Interface{% endblock %} {% block content%}
 
 <table>
     <thead>
-    <th> Item Name </th>
-    <th> Item Catergory </th>
-    <th> Item Price </th>
-    <th> Item Quantity </th>
+        <th> Item Name </th>
+        <th> Item Catergory </th>
+        <th> Item Price </th>
+        <th> Item Quantity </th>
     </thead>
-    
-    <tbody>
     {% for i in items %}
-    <td> {{i.item_name}} </td>
-    <td> {{i.item_catergories}}
-    <td> {{i.item_price}} </td>
-    <td> {{i.item_quantity}} </td>
-
-    {% endfor %}
-
+    <tbody>
+        <form name="purchaseForm" method="POST">
+            {% csrf_token %}
+            <td> <input type="text" name="item_name" value={{i.item_name}} hidden=t rue> {{i.item_name}} </td>
+            <td> {{i.item_catergories}} </td>
+            <td> {{i.item_price}} </td>
+            <td> {{i.item_quantity}} </td>
+            <td> <input type="number" name="amount"> </td>
+            <td> <button type="button "> Buy</button> </td>
+        </form>
     </tbody>
-    
+    {% endfor %}
 </table>
 
 {%endblock%}

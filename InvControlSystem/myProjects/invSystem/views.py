@@ -8,7 +8,6 @@ def index(request):
 
 #Login Page Logic
 def loginPageRender(request): 
-
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -30,6 +29,10 @@ def loginPageRender(request):
     return render(request, 'login.html', {'form':form})
 
 def customerInterfaceRender(request):
+    if request.method == "POST":
+        pass
+
+
     items = Item.objects.all();
     return render(request,'customer_interface.html', {'items': items})
 
