@@ -57,3 +57,30 @@
     grid-column: 2;
     grid-row: 2;
 }
+
+
+/*Table CSS */
+
+.table-header-projects {
+    color: #d66853ff;
+}
+
+.table-cells-projects {
+    color: #658e9cff;
+    text-align: center;
+}
+
+
+/*Contact Form CSS*/
+
+input[type=text],
+select,
+textarea {
+    resize: vertical;
+}
+
+.contact-form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
